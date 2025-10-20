@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Main2.css";
-import books from "../Books/booksData";
 import { useNavigate } from "react-router-dom";
 
 
