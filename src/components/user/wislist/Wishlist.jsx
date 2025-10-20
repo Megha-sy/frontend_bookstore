@@ -9,7 +9,7 @@ function Wishlist() {
   useEffect(() => {
     const fetchWishlist = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/books/wishlist");
+        const res = await axios.get("https://bookstore-backend-2-hy2f.onrender.com/api/books/wishlist");
         setWishlist(res.data.data || []);
       } catch (err) {
         console.error("Error fetching wishlist:", err);
@@ -21,7 +21,7 @@ function Wishlist() {
   // Remove from wishlist
   const removeFromWishlist = async (wishId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/books/wishlist/${wishId}`);
+      await axios.delete(`https://bookstore-backend-2-hy2f.onrender.com/api/books/wishlist/${wishId}`);
       setWishlist((prev) => prev.filter((item) => item._id !== wishId));
       alert("Removed from wishlist!");
     } catch (err) {
@@ -43,7 +43,7 @@ function Wishlist() {
               <div key={item._id} className="wishlist-card">
                 {book?.image ? (
                   <img
-                    src={`http://localhost:5000/uploads/${book.image}`}
+                    src={`https://bookstore-backend-2-hy2f.onrender.com/uploads/${book.image}`}
                     alt={book.title}
                   />
                 ) : (

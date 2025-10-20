@@ -8,7 +8,7 @@ export default function ManageBooks() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/books/get/")
+      .get("https://bookstore-backend-2-hy2f.onrender.com/api/books/get/")
       .then((res) => setBooks(res.data.data))
       .catch((err) => console.error("Error fetching books:", err));
   }, []);
@@ -16,7 +16,7 @@ export default function ManageBooks() {
   const deleteBook = async (id) => {
     if (!window.confirm("Are you sure you want to delete this book?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/books/delete/${id}`);
+      await axios.delete(`https://bookstore-backend-2-hy2f.onrender.com/api/books/delete/${id}`);
       setBooks((prev) => prev.filter((book) => book._id !== id));
     } catch (err) {
       console.error("Error deleting book:", err);
@@ -51,7 +51,7 @@ export default function ManageBooks() {
               <div className="relative w-full h-60 overflow-hidden">
                 {book.image ? (
                   <img
-                    src={`http://localhost:5000/uploads/${book.image}`}
+                    src={`https://bookstore-backend-2-hy2f.onrender.com/uploads/${book.image}`}
                     alt={book.title}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                   />

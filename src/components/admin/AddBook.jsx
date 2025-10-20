@@ -33,7 +33,7 @@ export default function AddBook() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/books/add/", formData, {
+      await axios.post("https://bookstore-backend-2-hy2f.onrender.com/api/books/add/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("✅ Book added successfully!");

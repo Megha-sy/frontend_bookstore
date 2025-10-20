@@ -38,12 +38,12 @@ function Books() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/books/get");
+        const res = await axios.get("https://bookstore-backend-2-hy2f.onrender.com/api/books/get");
         setBooksData(res.data.data || []);
 
-        const cartRes = await axios.get("http://localhost:5000/api/books/cart");
+        const cartRes = await axios.get("https://bookstore-backend-2-hy2f.onrender.com/api/books/cart");
          setCartItems(cartRes.data.data || []);
-      const wishRes = await axios.get("http://localhost:5000/api/books/wishlist");
+      const wishRes = await axios.get("https://bookstore-backend-2-hy2f.onrender.com/api/books/wishlist");
       setWishlist(wishRes.data.data || []);
       } catch (err) {
         console.error("Error fetching data:", err);
@@ -72,7 +72,7 @@ function Books() {
 
  const addToCart = async (book) => {
   try {
-    const res = await axios.post("http://localhost:5000/api/books/cart", {
+    const res = await axios.post("https://bookstore-backend-2-hy2f.onrender.com/api/books/cart", {
       bookId: book._id,
     });
 
@@ -93,12 +93,12 @@ function Books() {
     if (inWishlist) {
       // Remove from wishlist
       const itemToRemove = wishlist.find(item => item.book._id === book._id);
-      await axios.delete(`http://localhost:5000/api/books/wishlist/${itemToRemove._id}`);
+      await axios.delete(`https://bookstore-backend-2-hy2f.onrender.com/api/books/wishlist/${itemToRemove._id}`);
       setWishlist(prev => prev.filter(item => item.book._id !== book._id));
       alert(`${book.title} removed from wishlist`);
     } else {
       // Add to wishlist
-      const res = await axios.post("http://localhost:5000/api/books/wishlist", { bookId: book._id });
+      const res = await axios.post("https://bookstore-backend-2-hy2f.onrender.com/api/books/wishlist", { bookId: book._id });
       if (res.data.success) {
         setWishlist(prev => [...prev, res.data.data]);
         alert(`${book.title} added to wishlist`);
@@ -178,7 +178,7 @@ function Books() {
               <div className="wishlist-icon" onClick={() => toggleWishlist(book)}>
                 {inWishlist ? "❤️" : "🤍"}
               </div>
-              {book.image ? <img src={`http://localhost:5000/uploads/${book.image}`} alt={book.title} /> : <div className="no-image">No Image</div>}
+              {book.image ? <img src={`https://bookstore-backend-2-hy2f.onrender.com/uploads/${book.image}`} alt={book.title} /> : <div className="no-image">No Image</div>}
               <h3>{book.title}</h3>
               <p className="author">by {book.author}</p>
               <p className="price">₹{book.price}</p>

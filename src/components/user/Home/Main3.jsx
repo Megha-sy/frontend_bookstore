@@ -13,7 +13,7 @@ function Main3() {
   useEffect(() => {
     const fetchoffer = async () => {
       try {
-        const res = await axios.get("http://localhost:5001/offers");
+        const res = await axios.get("https://bookstore-backend-2-hy2f.onrender.com/offers");
         setoffer(res.data);
       } catch (err) {
         console.error("Error fetching books:", err);

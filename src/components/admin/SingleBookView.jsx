@@ -9,7 +9,7 @@ export default function SingleBookView() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/books/get/${id}`)
+      .get(`https://bookstore-backend-2-hy2f.onrender.com/api/books/get/${id}`)
       .then((res) => setBook(res.data.data))
       .catch((err) => console.error("Error fetching book:", err));
   }, [id]);
@@ -37,7 +37,7 @@ export default function SingleBookView() {
         <div className="mt-10 flex justify-center items-center">
           <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl p-10 flex flex-col md:flex-row gap-10 items-center transform transition hover:scale-[1.01]">
             <img
-              src={`http://localhost:5000/uploads/${book.image}`}
+              src={`https://bookstore-backend-2-hy2f.onrender.com/uploads/${book.image}`}
               alt={book.title}
               className="w-80 h-[32rem] object-cover rounded-2xl shadow-lg"
             />

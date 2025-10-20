@@ -17,7 +17,7 @@ export default function UpdateBook() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/books/get/${id}`)
+      .get(`https://bookstore-backend-2-hy2f.onrender.com/api/books/get/${id}`)
       .then((res) => {
         if (res.data?.data) {
           const data = res.data.data;
@@ -25,7 +25,7 @@ export default function UpdateBook() {
             ...data,
             image: null,
             imagePreview: data.image
-              ? `http://localhost:5000/uploads/${data.image}`
+              ? `https://bookstore-backend-2-hy2f.onrender.com/uploads/${data.image}`
               : "",
           });
         }
@@ -58,7 +58,7 @@ export default function UpdateBook() {
     }
 
     try {
-      await axios.put(`http://localhost:5000/api/books/put/${id}`, formData, {
+      await axios.put(`https://bookstore-backend-2-hy2f.onrender.com/api/books/put/${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("✅ Book updated successfully!");

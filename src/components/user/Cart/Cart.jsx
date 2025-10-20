@@ -8,7 +8,7 @@ function Cart() {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/books/cart");
+        const res = await axios.get("https://bookstore-backend-2-hy2f.onrender.com/api/books/cart");
         setCartItems(res.data.data || []); // ✅ backend returns 'data'
       } catch (error) {
         console.error("Error fetching cart:", error);
@@ -19,7 +19,7 @@ function Cart() {
 
   const removeFromCart = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/books/cart/${id}`);
+      await axios.delete(`https://bookstore-backend-2-hy2f.onrender.com/api/books/cart/${id}`);
       setCartItems(cartItems.filter((item) => item._id !== id));
     } catch (error) {
       console.error("Error removing item:", error);
@@ -29,7 +29,7 @@ function Cart() {
   const clearCart = async () => {
     try {
       await Promise.all(cartItems.map((item) =>
-        axios.delete(`http://localhost:5000/api/books/cart/${item._id}`)
+        axios.delete(`https://bookstore-backend-2-hy2f.onrender.com/api/books/cart/${item._id}`)
       ));
       setCartItems([]);
     } catch (error) {
@@ -72,7 +72,7 @@ function Cart() {
 
       {cartItems.map((item) => (
         <div className="cart-item" key={item._id}>
-         <img src={item.book?.image ? `http://localhost:5000/uploads/${item.book.image}` : ""}alt={item.book?.title}/>
+         <img src={item.book?.image ? `https://bookstore-backend-2-hy2f.onrender.com/uploads/${item.book.image}` : ""}alt={item.book?.title}/>
 
           <div className="cart-item-content">
            <h3>{item.book?.title}</h3>

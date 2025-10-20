@@ -7,7 +7,7 @@ export default function BookList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/books/get")
+      .get("https://bookstore-backend-2-hy2f.onrender.com/api/books/get")
       .then((res) => setBooks(res.data.data))
       .catch((err) => console.error("Error fetching books:", err));
   }, []);
@@ -32,7 +32,7 @@ export default function BookList() {
                 <div className="w-full h-56 bg-gray-200 overflow-hidden">
                   {book.image ? (
                     <img
-                      src={`http://localhost:5000/uploads/${book.image}`}
+                      src={`https://bookstore-backend-2-hy2f.onrender.com/uploads/${book.image}`}
                       alt={book.title}
                       className="w-full h-full object-cover"
                     />
