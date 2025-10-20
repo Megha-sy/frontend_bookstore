@@ -12,7 +12,7 @@ function Home() {
     <Header/>
     <Main1/>
     <Main4/>
-    <Main2/>
+    {/* <Main2/> */}
     <Main3/>
     <Footer/>
     
