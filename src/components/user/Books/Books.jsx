@@ -38,12 +38,12 @@ function Books() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("https://bookstore-backend-2-hy2f.onrender.com/api/books/get");
+        const res = await axios.get("https://backend-bookstore-dlmr.onrender.com/api/books/get");
         setBooksData(res.data.data || []);
 
-        const cartRes = await axios.get("https://bookstore-backend-2-hy2f.onrender.com/api/books/cart");
+        const cartRes = await axios.get("https://backend-bookstore-dlmr.onrender.com/api/books/cart");
          setCartItems(cartRes.data.data || []);
-      const wishRes = await axios.get("https://bookstore-backend-2-hy2f.onrender.com/api/books/wishlist");
+      const wishRes = await axios.get("https://backend-bookstore-dlmr.onrender.com/api/books/wishlist");
       setWishlist(wishRes.data.data || []);
       } catch (err) {
         console.error("Error fetching data:", err);
